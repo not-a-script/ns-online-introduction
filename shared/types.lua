@@ -1,0 +1,302 @@
+---@alias ComponentVariation integer[]
+---@alias PassengerOutfit table<integer, ComponentVariation>
+---@alias Vec3 number[]
+---@alias Quaternion number[]
+---@alias VehicleMod integer[]
+
+---@class CamShot
+---@field pos1 Vec3
+---@field rot1 Vec3
+---@field fov1 number
+---@field pos2 Vec3
+---@field rot2 Vec3
+---@field fov2 number
+---@field duration integer
+---@field graphPos integer
+---@field graphRot integer
+---@field graphFov integer
+---@field shakeType string?
+---@field shakeAmplitude number?
+
+---@class SyncCamShot
+---@field anim string
+---@field phase number
+---@field rate number
+
+---@class LoadSceneDef
+---@field pos Vec3
+---@field rot Vec3
+---@field radius number
+
+---@class RaceCarDef
+---@field model string
+---@field pos Vec3
+---@field heading number
+---@field recording integer
+---@field quaternion Quaternion?
+---@field colourCombination integer?
+---@field colours integer[]?
+---@field extraColours integer[]?
+---@field modKit integer?
+---@field xenon boolean?
+
+---@class GarageCarDef
+---@field model string
+---@field pos Vec3
+---@field heading number
+---@field colours integer[]?
+---@field extraColours integer[]?
+---@field modKit integer?
+---@field mods VehicleMod[]?
+---@field xenon boolean?
+---@field bonnetOpen boolean?
+
+---@class MechanicDef
+---@field model string
+---@field pos Vec3
+---@field heading number
+---@field dict string
+---@field clip string
+---@field attachTo integer
+---@field sceneFlags integer
+---@field blendIn number
+---@field blendOut number
+---@field components table<integer, ComponentVariation>
+
+---@class RoadArea
+---@field a Vec3
+---@field b Vec3
+---@field width number
+
+---@class IntroStage
+---@field name string
+---@field setup fun()
+---@field advance fun(): boolean
+
+---@class IntroConstants
+---@field cutsceneName string
+---@field maleSection integer
+---@field femaleSection integer
+---@field playbackFlags integer
+---@field startFlags integer
+---@field maleModel string
+---@field femaleModel string
+---@field maleFreemodeModel string
+---@field femaleFreemodeModel string
+---@field registerAnimate integer
+---@field registerDontAnimate integer
+---@field registerIgnoreModel integer
+---@field streamingKeepVariations integer
+---@field pedTypeMission integer
+---@field pedTypeCivMale integer
+---@field passengerX number
+---@field passengerY number
+---@field passengerZ number
+---@field passengerHeading number
+---@field passengerEntities table<integer, string>
+---@field femalePassengers table<integer, boolean>
+---@field passengerOutfits table<integer, PassengerOutfit>
+---@field planeModel string
+---@field planeEntity string
+---@field planeX number
+---@field planeY number
+---@field planeZ number
+---@field planeLodDist integer
+---@field ptfxAsset string
+---@field exhaustEffect string
+---@field tyreSmokeEffect string
+---@field exhaustOffsets Vec3[]
+---@field tyreSmokeOffsets Vec3[]
+---@field ptfxScale number
+---@field lamarModel string
+---@field lamarEntity string
+---@field lamarX number
+---@field lamarY number
+---@field lamarZ number
+---@field lamarHeading number
+---@field lamarCarModel string
+---@field lamarCarEntity string
+---@field lamarCarX number
+---@field lamarCarY number
+---@field lamarCarZ number
+---@field lamarCarHeading number
+---@field nightHour integer
+---@field nightMinute integer
+---@field nightSecond integer
+---@field lateHour integer
+---@field lateMinute integer
+---@field lateSecond integer
+---@field taxiSection integer
+---@field tyreSmokeTime integer
+---@field airportJetTime integer
+---@field musicStart string
+---@field musicDriveStart string
+---@field musicDriveEnd string
+---@field loadSceneX number
+---@field loadSceneY number
+---@field loadSceneZ number
+---@field loadSceneRadius number
+---@field loadSceneFlags integer
+---@field cutsceneDurationMs integer
+---@field overrideWeather string
+---@field initHour integer
+---@field initMinute integer
+---@field initSecond integer
+---@field raceHour integer
+---@field garageHour integer
+---@field fadeTime integer
+---@field controlSuppressFlags integer
+---@field hudComponentsToHide integer[]
+---@field graphLinear integer
+---@field graphDecel integer
+---@field modKitDefault integer
+---@field modXenon integer
+---@field freemodeCutStartPos Vec3
+---@field scenarioBlockMin Vec3
+---@field scenarioBlockMax Vec3
+---@field roadAreas RoadArea[]
+---@field froggerModel string
+---@field heliRecording integer
+---@field heliRecordingName string
+---@field heliSkip number
+---@field uberModels string[]
+---@field uberRecordingName string
+---@field raceDict string
+---@field raceOrigin Vec3
+---@field raceOriginRot Vec3
+---@field raceCars table<integer, RaceCarDef>
+---@field racerStartSkip number
+---@field raceCams table<string, SyncCamShot>
+---@field race3AttachOffset Vec3
+---@field race1Skip number
+---@field race2Skip number
+---@field race2Car2Offset number
+---@field race3Skip number
+---@field race4Skip number
+---@field race5Skip number
+---@field raceWarp Vec3
+---@field audioScene string
+---@field gtaoScaleform string
+---@field logoMethod string
+---@field logoAnimpostfx string
+---@field logoFxOffset integer
+---@field splashArmOffset integer
+---@field garageInteriorName string
+---@field garageInteriorCoords Vec3
+---@field garageRoomHash string
+---@field garageRadioEmitter string
+---@field garageCars table<integer, GarageCarDef>
+---@field mechanic MechanicDef
+---@field airportWarp Vec3
+---@field shot1LoadScene LoadSceneDef
+---@field cams table<string, CamShot>
+---@field stageTimes table<string, integer>
+---@field driveOrigin Vec3
+---@field driveOriginRot Vec3
+---@field driveFinalOrigin Vec3
+---@field driveFinalOriginRot Vec3
+---@field driveAudioScene string
+---@field driveCloudHat string
+---@field driveMidnightHour integer
+---@field lamarStartPos Vec3
+---@field lamarStartHeading number
+---@field lamarRecordingName string
+---@field lamarRecMain integer
+---@field lamarRecRamp integer
+---@field lamarRecPark integer
+---@field lamarEntrySkip number
+---@field driveAttachOffset Vec3
+---@field drivePointOffset Vec3
+---@field driveAttachFov number
+---@field driveShakeType string
+---@field driveShakeAmp number
+---@field csLamarModel string
+---@field csLamarPos Vec3
+---@field csLamarHeading number
+---@field lamarSeatBone string
+---@field playerSeatBone string
+---@field driveAnims table
+---@field driveStages DriveStage[]
+---@field ambientCount integer
+---@field ambientModelA string
+---@field ambientModelB string
+---@field ambientCitySpeed number
+---@field ambientCityForward number
+---@field ambientSafeCoords table<integer, { pos: Vec3, heading: number }>
+---@field ambientStages table<string, table[]>
+---@field vagosModel string
+---@field vagosSpawn Vec3
+---@field vagosDictLean string
+---@field vagosClipLean string
+---@field vagosDictHang string
+---@field vagosClipHang string
+---@field vagosWeapon string
+---@field vagos table<integer, VagosDef>
+---@field arrivalCutsceneMale string
+---@field arrivalCutsceneFemale string
+---@field arrivalPlayerHandleMale string
+---@field arrivalPlayerHandleFemale string
+---@field arrivalLamarHandle string
+---@field arrivalCarHandle string
+---@field arrivalPlayerPos Vec3
+---@field arrivalPlayerFace Vec3
+---@field creditsScaleform string
+---@field creditWipeIn number
+---@field creditWipeOut number
+---@field creditWipeGap number
+---@field creditBlocks CreditBlock[]
+---@field creditBlocksArrival table[]
+---@field srlName string
+---@field mocapStartTime integer
+---@field mocapEndTime integer
+---@field srlReadaheadNormal number[]
+---@field srlReadaheadNormalSp number[]
+---@field srlReadaheadHeavy number[]
+---@field dialogueBlock string
+---@field lamarSpeaker string
+---@field lamarLines table<string, DialogueLine[]>
+
+---@class DialogueLine
+---@field time integer
+---@field root string
+---@field label string
+
+---@class DriveStage
+---@field name string
+---@field endTime integer
+---@field kind string
+---@field anim string?
+---@field phase number?
+---@field rate number?
+---@field entry boolean?
+---@field seat boolean?
+---@field radio boolean?
+---@field clock integer?
+---@field cloudUnload boolean?
+---@field vagosCleanup boolean?
+---@field musicEndGate boolean?
+---@field skip number?
+---@field rampSkip number?
+---@field parkSkip number?
+---@field lamarPhase number[]?
+---@field playerPhase number[]?
+---@field ambient string
+
+---@class VagosDef
+---@field anim string
+---@field pos Vec3
+---@field rot number
+---@field physics boolean?
+
+---@class CreditBlock
+---@field id string
+---@field x number
+---@field y number
+---@field align string
+---@field wipeIn number
+---@field wipeOut number
+---@field gap number
+---@field roles table[]
+---@field names table[]
+---@field show integer
+---@field hide integer
